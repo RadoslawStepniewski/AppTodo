@@ -1,21 +1,38 @@
 import React, {Component} from 'react'
+import TextField from 'material-ui/TextField'
 import Task from './Task'
-class TasksList extends React{
+import Button from 'material-ui/Button'
+
+class TasksList extends React {
     state = {
-        tasks: ['one', 'two','tree']
+        task: '',
+        tasks: ['one', 'two', 'tree']
     }
 
-    render(){
-        return(
+    handleChange = (event) => {
+        this.setState({task: event.target.value})
+    }
+    handleClick = event => {
+        this.setState({tasks: this.state.tasks.concat(this.state.task)})
+    }
+
+    render() {
+        return (
             <div>
-                {this.state.tasks.map((taskName, index) => (
-              <Task key={index} name={taskName}/>))
-                }
+                <div>
+                    <TextField value={this.state.tast} onChange={this.handleChange}/>
+                    <Button onClick={this.handleClick}>Add task</Button>
+                </div>
+                <div>
+                    {this.state.tasks.map((taskName, index) => (
+                        <Task key={index} name={taskName}/>))
+                    }
+                </div>
             </div>
-                );
+        );
     }
-
 
 
 }
+
 export default TasksList;
