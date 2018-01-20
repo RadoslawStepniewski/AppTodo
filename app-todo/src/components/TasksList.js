@@ -16,7 +16,14 @@ class TasksList extends React.Component {
         this.setState({tasks: this.state.tasks.concat(this.state.task)})
     }
 
-    render() {
+    handleRemove = (index) => {
+        this.setState({
+            tasks: this.state.tasks.filter((task, interationIndex) => index !== interationIndex)
+        } );
+
+    }
+
+    render(){
         return (
             <div>
                 <div>
@@ -25,7 +32,9 @@ class TasksList extends React.Component {
                 </div>
                 <div>
                     {this.state.tasks.map((taskName, index) => (
-                        <Task key={index} name={taskName}/>))
+                        <Task key={index} name={taskName}
+                              onDelete={() => this.handleRemove(index)}
+                        />))
                     }
                 </div>
             </div>
