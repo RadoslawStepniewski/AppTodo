@@ -4,13 +4,7 @@ import Checkbox from 'material-ui/Checkbox';
 
 
 class Task extends React.Component{
-    // constructor(props){
-    //     super(props);
-    //     this.state = {
-    //         checked: false
-    //     }
-    //     this.handleChange1 = this.handleChange1.bind(this);
-    // }
+
     state = {
         checked: false
     }
