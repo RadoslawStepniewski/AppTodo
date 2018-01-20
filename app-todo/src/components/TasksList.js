@@ -2,31 +2,44 @@ import React from 'react'
 import TextField from 'material-ui/TextField'
 import Task from './Task'
 import Button from 'material-ui/Button'
+import { connect} from 'react-redux'
+import { addTask, search} from './state'
 
+const mapStateToProps = (state) => ({
+
+    tasksList: state.tasks.tasks,
+    query: state.tasks.query
+
+});
+const mapDispatchToProps = (dispatch)=>({
+
+    addNewTask: (value) => dispatch(addTask(value)),
+    searchTask: (value) => dispatch(search(value)),
+    remove: (index) => dispatch(removeTask(index))
+
+});
 class TasksList extends React.Component {
+
     state = {
-        query : '',
         task: '',
-        tasks: ['one', 'two', 'tree']
-    }
+
+    };
 
     handleChange = (event) => {
-        this.setState({task: event.target.value})
-    }
+        this.setState({task: event.target.value});
+    };
 
     handleSearchChange = (event) =>{
-        this.setState({
-            query:event.target.value
-        })
-    }
+     this.props.searchTask(event.target.value);
+    };
     handleClick = event => {
-        this.setState({tasks: this.state.tasks.concat(this.state.task)})
-    }
+       this.props.addNewTask(this.state.task)
+    };
 
     handleRemove = (index) => {
-        this.setState({
-            tasks: this.state.tasks.filter((task, interationIndex) => index !== interationIndex)
-        } );
+        this.props.remove(index);
+
+        } ;
 
     }
 
@@ -41,7 +54,7 @@ class TasksList extends React.Component {
                     <TextField onChange={this.handleSearchChange}/>
                 </div>
                 <div>
-                    {this.state.tasks
+                    {this.props.tasksList
                         .filter(task => task.indexOf(this.state.query) !== -1)
                         .map((taskName, index) => (
                         <Task key={index} name={taskName}
@@ -56,4 +69,5 @@ class TasksList extends React.Component {
 
 }
 
-export default TasksList;
+export default connect(mapStateToProps, mapDispatchToProps)
+(TasksList;)
