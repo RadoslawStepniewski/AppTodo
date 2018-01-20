@@ -8,9 +8,11 @@ class App extends Component {
     return (
         <Grid container>
           <Grid item xs={12}>
-            <Task/>
+            <Task name="zad1"/>
+            <Task name="zad2"/>
+            <Task name="zad3"/>
           </Grid>
-          <Grid/>
+        </Grid>
 
     );
   }
