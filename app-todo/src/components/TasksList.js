@@ -39,15 +39,13 @@ class TasksList extends React.Component {
     handleRemove = (index) => {
         this.props.remove(index);
 
-        } ;
-
-    }
+    } ;
 
     render(){
         return (
             <div>
                 <div>
-                    <TextField value={this.state.tast} onChange={this.handleChange}/>
+                    <TextField value={this.state.task} onChange={this.handleChange}/>
                     <Button onClick={this.handleClick}>Add task</Button>
                 </div>
                 <div>
@@ -70,4 +68,4 @@ class TasksList extends React.Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)
-(TasksList;)
+(TasksList)

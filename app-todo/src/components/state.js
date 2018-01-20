@@ -29,17 +29,17 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 tasks: state.tasks.concat(action.task)
-            }
+            };
         case FILTER_TASKS:
             return {
                 ...state,
                 query: action.value
-            }
+            };
         case REMOVE_TASK:
             return{
                 ...state,
-                tasks: state.tasks.filter((task, inter))
-            }
+                tasks: state.tasks.filter((task, iterationIndex ) => action.textIndex !== iterationIndex)
+            };
         default:
             return state
     }
