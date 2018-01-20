@@ -5,12 +5,19 @@ import Button from 'material-ui/Button'
 
 class TasksList extends React.Component {
     state = {
+        query : '',
         task: '',
         tasks: ['one', 'two', 'tree']
     }
 
     handleChange = (event) => {
         this.setState({task: event.target.value})
+    }
+
+    handleSearchChange = (event) =>{
+        this.setState({
+            query:event.target.value
+        })
     }
     handleClick = event => {
         this.setState({tasks: this.state.tasks.concat(this.state.task)})
@@ -31,7 +38,12 @@ class TasksList extends React.Component {
                     <Button onClick={this.handleClick}>Add task</Button>
                 </div>
                 <div>
-                    {this.state.tasks.map((taskName, index) => (
+                    <TextField onChange={this.handleSearchChange}/>
+                </div>
+                <div>
+                    {this.state.tasks
+                        .filter(task => task.indexOf(this.state.query) !== -1)
+                        .map((taskName, index) => (
                         <Task key={index} name={taskName}
                               onDelete={() => this.handleRemove(index)}
                         />))
