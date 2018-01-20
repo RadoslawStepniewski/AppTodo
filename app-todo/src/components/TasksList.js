@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React from 'react'
 import TextField from 'material-ui/TextField'
 import Task from './Task'
 import Button from 'material-ui/Button'
 
-class TasksList extends React {
+class TasksList extends React.Component {
     state = {
         task: '',
         tasks: ['one', 'two', 'tree']
