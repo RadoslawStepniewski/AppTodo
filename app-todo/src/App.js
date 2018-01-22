@@ -5,7 +5,7 @@ import Todo from './components/todo.js';
 const App = () => (
   <Grid container>
     <Grid item xs={12}>
-      <TasksContainer/>
+      <Todo/>
     </Grid>
   </Grid>
 );
