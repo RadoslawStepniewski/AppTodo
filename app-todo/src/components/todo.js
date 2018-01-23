@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
-
 import TaskList from './TasksList';
-import { add, search, remove } from './state';
+import { add, search, remove } from './state/state.js';
 
 const mapStateToProps = state => ({
   tasksList: state.tasks.tasks,
