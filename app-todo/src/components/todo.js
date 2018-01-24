@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import TextField from 'material-ui/TextField';
-import TaskList from './TasksList';
+import TaskList from './tasksList';
 import {add, remove, search} from './state/state.js';
 import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
@@ -64,7 +64,7 @@ class Todo extends Component {
 
                         </Grid>
                     <Grid item xs={12} sm={12}>
-                        <h2>My tasks</h2>
+                        <h2>Tasks List</h2>
                         <TaskList
                             tasks={this.props.tasksList}
                             query={this.props.query}

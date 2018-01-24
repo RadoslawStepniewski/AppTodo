@@ -4,8 +4,8 @@ import Todo from './components/todo.js';
 import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
-
-
+import Footer from './components/footer/footer'
+import Header from './components/header/header'
 
 
 const styles = theme => ({
@@ -28,7 +28,9 @@ class App extends Component {
                 <Grid container spacing={24}>
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>
+                            <Header/>
                             <Todo/>
+                            <Footer/>
                         </Paper>
                     </Grid>
                 </Grid>
@@ -42,14 +44,4 @@ App.propTypes = {
 };
 
 
-
-// const App = () => (
-//     <Grid >
-//     <Grid item xs={12}>
-//
-//     </Grid>
-//   </Grid>
-// );
-
-// export default App;
 export default withStyles(styles)(App);

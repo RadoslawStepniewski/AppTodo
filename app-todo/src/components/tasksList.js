@@ -1,6 +1,6 @@
 import React from 'react';
 import List from 'material-ui/List';
-import Task from './Task';
+import Task from './task';
 
 const TasksList = (props) => (
   <List>
