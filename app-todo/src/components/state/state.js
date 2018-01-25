@@ -1,5 +1,5 @@
 
-import {database} from '../firebase';
+
 
 const ADD_TASK = 'ADD_TASK';
 const FILTER_TASKS = 'FILTER_TASKS';
