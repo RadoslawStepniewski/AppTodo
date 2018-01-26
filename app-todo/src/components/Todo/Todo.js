@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import TextField from 'material-ui/TextField';
-import TaskList from './tasksList';
-import {add, remove, search} from './state/state.js';
 import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
+
+import {add, remove, search} from './state';
+import TaskList from './TasksList';
 
 const mapStateToProps = state => ({
     tasksList: state.tasks.tasks,
@@ -44,25 +45,25 @@ class Todo extends Component {
         return (
             <div>
                 <Grid container spacing={24}>
-                        <Grid item xs={12} sm={6}>
-                            <form onSubmit={this.handleClick}>
-                                <TextField
-                                    id="task"
-                                    label="Task"
-                                    value={this.state.task}
-                                    onChange={this.handleChange}
-                                    margin="normal"
-                                />
-                                <Button type="submit" raised color="primary">Add</Button>
-                            </form>
-                        </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <form onSubmit={this.handleClick}>
+                            <TextField
+                                id="task"
+                                label="Task"
+                                value={this.state.task}
+                                onChange={this.handleChange}
+                                margin="normal"
+                            />
+                            <Button type="submit" raised color="primary">Add</Button>
+                        </form>
+                    </Grid>
 
-                        <Grid item xs={12} sm={6}>
-                            <div>
-                                <TextField placeholder="Search" onChange={this.handleSearchChange}/>
-                            </div>
+                    <Grid item xs={12} sm={6}>
+                        <div>
+                            <TextField placeholder="Search" onChange={this.handleSearchChange}/>
+                        </div>
 
-                        </Grid>
+                    </Grid>
                     <Grid item xs={12} sm={12}>
                         <h2>Tasks List</h2>
                         <TaskList
@@ -75,9 +76,7 @@ class Todo extends Component {
             </div>
         );
     }
-
 }
-
 
 export default connect(
     mapStateToProps,

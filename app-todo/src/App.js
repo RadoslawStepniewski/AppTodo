@@ -1,12 +1,12 @@
-import React,  { Component } from 'react';
+import React, {Component} from 'react';
 import Grid from 'material-ui/Grid';
-import Todo from './components/todo.js';
-import { withStyles } from 'material-ui/styles';
+import {withStyles} from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
-import Footer from './components/footer/footer'
-import Header from './components/header/header'
 
+import Todo from './components/Todo/Todo';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
 const styles = theme => ({
     root: {
@@ -15,7 +15,6 @@ const styles = theme => ({
     },
     paper: {
         padding: 16,
-        textAlign: 'center',
         color: theme.palette.text.secondary,
     },
 });
@@ -42,6 +41,5 @@ class App extends Component {
 App.propTypes = {
     classes: PropTypes.object.isRequired,
 };
-
 
 export default withStyles(styles)(App);

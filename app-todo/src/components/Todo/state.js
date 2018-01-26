@@ -1,9 +1,8 @@
-
-
+import {database} from '../../firebase';
 
 const ADD_TASK = 'ADD_TASK';
 const FILTER_TASKS = 'FILTER_TASKS';
-const  REMOVE_TASK = 'REMOVE_TASK';
+const REMOVE_TASK = 'REMOVE_TASK';
 
 export const add = task => (
     {
@@ -39,7 +38,7 @@ export default (state = INITIAL_STATE, action) => {
                 query: action.value
             };
         case REMOVE_TASK:
-            return{
+            return {
                 ...state,
                 tasks: state.tasks.filter(task => task !== action.task)
             };
